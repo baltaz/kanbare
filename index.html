@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kanbare!</title>
+</head>
+<body>
+    <div class="container">
+        <header><h1 class="logo">Kanbare!</h1></header>
+        <div class="board">
+            <div class="column first todo">
+                <header><h2 class="name">to do</h2></header>
+                <div class="card" id="0" draggable="true">
+                    <div class="title"><h3>Card title 1</h3></div>
+                    <div class="description"><p>lorem ipsum description of the card</p></div>
+                </div>
+                <div class="card" id="1" draggable="true">
+                    <div class="title"><h3>Card title 2</h3></div>
+                    <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu tempus tortor.</p></div>
+                </div>
+                <div class="card" id="2" draggable="true">
+                    <div class="title"><h3>Card title 3</h3></div>
+                    <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae metus a nibh semper facilisis ut vitae risus. Vivamus consequat sapien nec nisi varius faucibus.</p></div>
+                </div>
+            </div>
+            <div class="column doing">
+                <header><h2 class="name">doing</h2></header>
+            </div>
+            <div class="column last done">
+                <header><h2 class="name">done</h2></header>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+</body>
+    <script src="scripts.js"></script>
+</html>
