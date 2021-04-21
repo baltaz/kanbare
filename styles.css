@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
 
 :root {
-  --bg-color-main: #40407a;
+  --bg-color-main: #546de5;
   --bg-color-column: #faf9fa;
   --bg-color-card: #ffffff;
 
@@ -25,8 +25,12 @@ body {
   grid-template-rows: 100px 1fr 100px;
 }
 .logo {
+  position: fixed;
+  z-index: -1;
+  transform: translateX(-50%);
   color: white;
   font-weight: 700;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .board {
@@ -34,24 +38,43 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 8px;
   width: 80vw;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 }
 
 .column {
   background-color: var(--bg-color-column);
   justify-items: center;
-  padding: 10px 10px 24px 10px;
+  padding: 0 0px 24px 0px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-.column.first {
-  border-radius: 16px 0px 0px 16px;
+.column > .color {
+  height: 8px;
 }
-.column.last {
-  border-radius: 0px 16px 16px 0px;
+.todo > .color {
+  background-color: #f65f6a;
+}
+.doing > .color {
+  background-color: #f6ac57;
+}
+.done > .color {
+  background-color: #63d2b4;
 }
 
 .column .name {
   text-align: center;
+  cursor: text;
+}
+.column.first {
+  border-radius: 8px 0px 0px 16px;
+}
+.column.first > .color {
+  border-top-left-radius: 8px;
+}
+.column.last {
+  border-radius: 0px 8px 16px 0px;
+}
+.column.last > .color {
+  border-top-right-radius: 8px;
 }
 
 .card {
