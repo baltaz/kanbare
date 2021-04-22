@@ -77,6 +77,7 @@ body {
   padding: 24px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
   animation: none;
+  user-select: none;
 }
 
 .card > .title {
@@ -245,12 +246,10 @@ h3 {
 
 @media screen and (max-width: 600px) {
   .column {
-    width: 90vw;
   }
+
   .board {
     display: grid;
     width: 1500px;
-    max-width: 100%;
-    min-width: 100%;
   }
 }
