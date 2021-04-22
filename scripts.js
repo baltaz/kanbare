@@ -21,6 +21,7 @@ const holding = (clickedCard)=>{
 }
 
 const release = (releasedCard)=>{
+    console.log("released");
     clearTimeout(holdTimer);
     card = releasedCard.currentTarget;
     card.classList.remove('holding');
@@ -30,6 +31,11 @@ cards.forEach(card=>{
     card.addEventListener("mousedown", holding);
     card.addEventListener("mouseup", release);
     card.addEventListener("mouseleave", release);
+    //touch
+    card.addEventListener("touchstart", holding);
+    card.addEventListener("touchend", release);
+    card.addEventListener("touchcancel", release);
+
 })
 
 //modal de add con animations
