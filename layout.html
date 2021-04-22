@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container swiper-container">
+        <div class="board swiper-wrapper">
+            <div class="column 1 swiper-slide"></div>
+            <div class="column 2 swiper-slide"></div>
+            <div class="column 3 swiper-slide"></div>
+        </div>
+    </div>
+</body>
+
+<style>
+    .body{
+        margin:0; padding: 0; box-sizing: border-box;
+    }
+    .container{
+        display: grid;
+        justify-items: center;
+    }
+    .board{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 10px;
+        width: 60vw;
+    }
+    
+    .column{
+        background-color: aquamarine;
+        height: 100vh;
+        width: 100%;
+    }
+    
+    @media screen and (max-width: 600px) {
+        
+        </style>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.7/swiper-bundle.min.js"></script>
+        <script>
+            var Swipes = new Swiper('.swiper-container', {
+                speed: 400,
+                centeredSlides: true,
+                init:false,
+            });
+            
+        
+            if(screen.width <= 800){
+                Swipes.init()
+            } 
+        </script>
+            
+</html>

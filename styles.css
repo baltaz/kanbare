@@ -76,6 +76,7 @@ body {
   margin: 16px;
   padding: 24px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+  animation: none;
 }
 
 .card > .title {
@@ -94,18 +95,42 @@ h3 {
 }
 
 .holding {
-  /*   animation: shake 0.2s linear infinite; */
+  animation: scale 0.8s ease-in forwards, shake 0.2s 0.8s linear infinite,
+    delete 0.2s 1.8s linear forwards;
+}
+
+@keyframes delete {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes scale {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: rgb(247, 181, 181);
+  }
 }
 
 @keyframes shake {
   0% {
     transform: rotate(0deg);
   }
-  50% {
+  33% {
     transform: rotate(1deg);
   }
-  100% {
+  66% {
     transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 
@@ -216,4 +241,16 @@ h3 {
 
 .dragable-zone {
   height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 90vw;
+  }
+  .board {
+    display: grid;
+    width: 1500px;
+    max-width: 100%;
+    min-width: 100%;
+  }
 }
