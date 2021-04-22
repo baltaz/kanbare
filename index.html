@@ -9,8 +9,10 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="header">
+            <div class="button delete-button">-</div>
             <h1 class="logo">Kanbare!</h1>
+            <div class="button add-button">+</div>
         </header>
         <div class="board">
             <div class="column first todo">
@@ -40,6 +42,15 @@
         </div>
         <footer></footer>
     </div>
+    <div class="modal">
+        <div class="modal-content">
+            <input type="text" class="title-field form-field" placeholder="Title">
+            <textarea class="description-field form-field" placeholder="Take a note..."></textarea>
+            <button class="save-button shadowed">SAVE</button>
+            <button class="delete-button shadowed">DELETE</button>
+        </div>
+    </div>
 </body>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="scripts.js"></script>
 </html>

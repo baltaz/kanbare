@@ -22,14 +22,6 @@ body {
   justify-items: center;
   grid-template-rows: 100px 1fr 100px;
 }
-.logo {
-  position: fixed;
-  z-index: -1;
-  transform: translateX(-50%);
-  color: white;
-  font-weight: 700;
-  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
 
 .board {
   display: grid;
@@ -116,12 +108,108 @@ h3 {
     transform: rotate(-1deg);
   }
 }
-/* 
-@media screen and (max-width: 800px) {
-  .board {
-    width: 100%;
-  }
-  .column {
-    width: 80vw;
-  }
-} */
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 8px;
+  width: 80vw;
+  max-width: 1152px;
+  min-width: 800px;
+  align-items: center;
+}
+
+.logo {
+  position: fixed;
+  left: 50%;
+  z-index: -1;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  grid-column: 2;
+}
+
+.button {
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  vertical-align: middle;
+  line-height: 46px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-button {
+  background-color: #63d2b4;
+  grid-column: 3;
+  justify-self: end;
+}
+.add:hover {
+  opacity: 0.9;
+}
+.delete-button {
+  background-color: #f65f6a;
+  grid-column: 1;
+  justify-self: start;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/*----modal----*/
+.modal {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+.modal-content {
+  background-color: #fff;
+  border-radius: 16px;
+  height: 70vh;
+  left: 50%;
+  top: 0;
+  opacity: 0;
+  max-height: 500px;
+  max-width: 500px;
+  padding: 24px 48px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+}
+
+.form-field {
+  border: none;
+  font: 16px "Open Sans", sans-serif;
+  width: 100%;
+}
+
+.title-field {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.description-field {
+  height: 78%;
+  resize: none;
+}
+
+.save-button {
+  bottom: 24px;
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  right: 48px;
+}
+
+.show {
+  display: block;
+  opacity: 1;
+  top: 50%;
+}

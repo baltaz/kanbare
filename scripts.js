@@ -2,7 +2,23 @@ const cards = document.querySelectorAll(".card");
 const columns = document.querySelectorAll(".column");
 let mouseDown = false;
 
+const todo = document.querySelector(".todo");
+const doing = document.querySelector(".doing");
+const done = document.querySelector(".done");
 
+const sortableConfig = {
+    group:'board',
+    sort: true,
+    animation: 200,
+    easing: "ease-in",
+}
+
+let sortableToDo = Sortable.create(todo,sortableConfig);
+let sortableDoing = Sortable.create(doing,sortableConfig);
+let sortableDone = Sortable.create(done,sortableConfig);
+
+
+/* 
 cards.forEach(card=>{
     card.addEventListener('dragstart',e=>{
         card.classList.add("dragging");
@@ -33,10 +49,34 @@ columns.forEach(column=>{
     })
 })
 
+let addButton = document.querySelector(".add-button");
+let modal = document.querySelector(".modal");
+let titleField = document.querySelector(".title-field");
+let descriptionField = document.querySelector(".description-field");
+
+const hideElement = e => e.classList.remove("show");
+const showElement = e => {
+    console.log(e.childNodes);
+    e.childNodes[1].classList.add("show");
+    e.style.display="block";
+}
+
+addButton.onclick = ()=>{
+    showElement(modal);
+    descriptionField.value="";
+    titleField.value="";
+    saveButton.classList.remove("active")
+};
+modal.onclick = e => {if(e.target==modal) hideElement(modal)}; */
 
 
-//position en column
-//create colums
+
+
+
+//modal de add con animations
 //create cards
+//cambiar ubicación al soltar
+//drag and drop to delete
 //access to edit
-//delete card pressing for 2 seconds
+//mobile touch
+//delete keep pressing (iphone effect)
