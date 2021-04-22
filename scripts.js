@@ -1,10 +1,8 @@
 const cards = document.querySelectorAll(".card");
-const columns = document.querySelectorAll(".column");
+/* const columns = document.querySelectorAll(".column"); */
 let mouseDown = false;
 
-const todo = document.querySelector(".todo");
-const doing = document.querySelector(".doing");
-const done = document.querySelector(".done");
+const columns = document.querySelectorAll(".dragable-zone");
 
 const sortableConfig = {
     group:'board',
@@ -12,10 +10,18 @@ const sortableConfig = {
     animation: 200,
     easing: "ease-in",
 }
+columns.forEach(e=>{
+    Sortable.create(e,sortableConfig);
+})
+
+/* const todo = document.querySelector(".dragable-zone");
+const doing = document.querySelector(".doing");
+const done = document.querySelector(".done");
+
 
 let sortableToDo = Sortable.create(todo,sortableConfig);
 let sortableDoing = Sortable.create(doing,sortableConfig);
-let sortableDone = Sortable.create(done,sortableConfig);
+let sortableDone = Sortable.create(done,sortableConfig); */
 
 
 /* 

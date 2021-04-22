@@ -213,3 +213,7 @@ h3 {
   opacity: 1;
   top: 50%;
 }
+
+.dragable-zone {
+  height: 100%;
+}
