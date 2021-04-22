@@ -95,7 +95,7 @@ h3 {
 }
 
 .holding {
-  animation: scale 0.8s ease-in forwards, shake 0.2s 0.8s linear infinite,
+  animation: scale 0.8s 0.5s ease-in forwards, shake 0.2s 0.5s linear infinite,
     delete 0.2s 1.8s linear forwards;
 }
 
@@ -115,7 +115,7 @@ h3 {
     background-color: #fff;
   }
   100% {
-    background-color: rgb(247, 181, 181);
+    background-color: #f7b5b5;
   }
 }
 
