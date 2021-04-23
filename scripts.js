@@ -42,11 +42,11 @@ hideModal = () => (modal.style.display = "none");
 
 const modal = document.querySelector(".overlay");
 const addButton = document.querySelector(".add-button");
-const infoButton = document.querySelector(".info-button");
+//const infoButton = document.querySelector(".info-button");
 const saveButton = document.querySelector(".save-button");
 
 addButton.addEventListener("click", showModal);
-infoButton.addEventListener("click", showModal);
+//infoButton.addEventListener("click", showModal);
 modal.addEventListener("click", (e) => {
   if (e.target == modal) hideModal();
 });
