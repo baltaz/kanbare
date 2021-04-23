@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="button delete-button">-</div>
+            <!-- <div class="button info-button">?</div> -->
             <h1 class="logo">Kanbare!</h1>
             <div class="button add-button">+</div>
         </header>
@@ -20,15 +20,15 @@
                 <div class="color"></div>
                 <header><h2 class="name">to do</h2></header>
                 <div class="dragable-zone">
-                    <div class="card" id="0" draggable="true">
+                    <div class="card" id="0">
                         <div class="title"><h3>Card title 1</h3></div>
                         <div class="description"><p>lorem ipsum description of the card</p></div>
                     </div>
-                    <div class="card" id="1" draggable="true">
+                    <div class="card" id="1">
                         <div class="title"><h3>Card title 2</h3></div>
                         <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu tempus tortor.</p></div>
                     </div>
-                    <div class="card" id="2" draggable="true">
+                    <div class="card" id="2">
                         <div class="title"><h3>Card title 3</h3></div>
                         <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae metus a nibh semper facilisis ut vitae risus. Vivamus consequat sapien nec nisi varius faucibus.</p></div>
                     </div>
@@ -38,11 +38,11 @@
                 <div class="color"></div>
                 <header><h2 class="name">doing</h2></header>
                 <div class="dragable-zone">
-                    <div class="card" id="3" draggable="true">
+                    <div class="card" id="3">
                         <div class="title"><h3>Card title 4</h3></div>
                         <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae metus a nibh semper facilisis ut vitae risus. Vivamus consequat sapien nec nisi varius faucibus.</p></div>
                     </div>
-                    <div class="card" id="4" draggable="true">
+                    <div class="card" id="4">
                         <div class="title"><h3>Card title 5</h3></div>
                         <div class="description"><p>Lorem ipsum dolor sit amet ut vitae risus. Vivamus consequat sapien nec nisi varius faucibus.</p></div>
                     </div>
@@ -56,12 +56,11 @@
         </div>
         <footer></footer>
     </div>
-    <div class="modal">
-        <div class="modal-content">
+    <div class="overlay">
+        <div class="modal">
             <input type="text" class="title-field form-field" placeholder="Title">
-            <textarea class="description-field form-field" placeholder="Take a note..."></textarea>
-            <button class="save-button shadowed">SAVE</button>
-            <button class="delete-button shadowed">DELETE</button>
+            <textarea class="description-field form-field" placeholder="Take a note..." contenteditable></textarea>
+            <div class="button save-button">Save!</div>
         </div>
     </div>
 </body>
