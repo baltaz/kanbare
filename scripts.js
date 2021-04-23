@@ -42,11 +42,9 @@ hideModal = () => (modal.style.display = "none");
 
 const modal = document.querySelector(".overlay");
 const addButton = document.querySelector(".add-button");
-//const infoButton = document.querySelector(".info-button");
 const saveButton = document.querySelector(".save-button");
 
 addButton.addEventListener("click", showModal);
-//infoButton.addEventListener("click", showModal);
 modal.addEventListener("click", (e) => {
   if (e.target == modal) hideModal();
 });
@@ -95,6 +93,15 @@ const saveCard = () => {
 
 saveButton.addEventListener("click", saveCard);
 
-//create cards
+//
+score = document.querySelector(".score").firstChild;
+const dones = document
+  .querySelector(".done")
+  .querySelector(".dragable-zone")
+  .querySelectorAll(".card").length;
+console.log(dones);
+console.log(cards.length);
+score.innerText = Math.trunc((dones / cards.length) * 100) + "%";
+
 //access to edit
 //localstorage
