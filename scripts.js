@@ -30,7 +30,7 @@ columns.forEach(e => {
 });
 
 const holding = clickedCard => {
-  card = clickedCard.currentTarget;
+  const card = clickedCard.currentTarget;
   card.classList.add("holding");
   holdTimer = setTimeout(() => {
     if (card.classList.contains("holding")){
@@ -80,6 +80,7 @@ const saveCard = () => {
   localStorage.setItem("id",newCard.id);
   localStorage.setItem("cards", JSON.stringify(cardsList));
   
+  renderScore();
   hideModal();
   titleField.value = "";
   descriptionField.value = "";
