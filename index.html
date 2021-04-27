@@ -11,44 +11,22 @@
 <body>
     <div class="container">
         <header class="header">
-            <!-- <div class="button info-button">?</div> -->
+            <h1 class="score"></h1>
             <h1 class="logo">Kanbare!</h1>
             <div class="button add-button">+</div>
         </header>
         <div class="board">
-            <div class="column first todo">
+            <div class="column first" id="todo">
                 <div class="color"></div>
                 <header><h2 class="name">to do</h2></header>
-                <div class="dragable-zone">
-                    <div class="card" id="0">
-                        <div class="title"><h3>Card title 1</h3></div>
-                        <div class="description"><p>lorem ipsum description of the card</p></div>
-                    </div>
-                    <div class="card" id="1">
-                        <div class="title"><h3>Card title 2</h3></div>
-                        <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu tempus tortor.</p></div>
-                    </div>
-                    <div class="card" id="2">
-                        <div class="title"><h3>Card title 3</h3></div>
-                        <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae metus a nibh semper facilisis ut vitae risus. Vivamus consequat sapien nec nisi varius faucibus.</p></div>
-                    </div>
-                </div>
+                <div class="dragable-zone"></div>
             </div>
-            <div class="column doing">
+            <div class="column" id="doing">
                 <div class="color"></div>
                 <header><h2 class="name">doing</h2></header>
-                <div class="dragable-zone">
-                    <div class="card" id="3">
-                        <div class="title"><h3>Card title 4</h3></div>
-                        <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae metus a nibh semper facilisis ut vitae risus. Vivamus consequat sapien nec nisi varius faucibus.</p></div>
-                    </div>
-                    <div class="card" id="4">
-                        <div class="title"><h3>Card title 5</h3></div>
-                        <div class="description"><p>Lorem ipsum dolor sit amet ut vitae risus. Vivamus consequat sapien nec nisi varius faucibus.</p></div>
-                    </div>
-                </div>
+                <div class="dragable-zone"></div>
             </div>
-            <div class="column last done">
+            <div class="column last" id="done">
                 <div class="color"></div>
                 <header><h2 class="name">done</h2></header>
                 <div class="dragable-zone"></div>
@@ -63,7 +41,7 @@
             <div class="button save-button">Save!</div>
         </div>
     </div>
-</body>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src="scripts.js" type="module"></script>
+</body>
 </html>

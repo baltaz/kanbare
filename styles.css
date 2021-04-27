@@ -42,13 +42,13 @@ body {
 .column > .color {
   height: 8px;
 }
-.todo > .color {
+#todo > .color {
   background-color: #f65f6a;
 }
-.doing > .color {
+#doing > .color {
   background-color: #f6ac57;
 }
-.done > .color {
+#done > .color {
   background-color: #63d2b4;
 }
 
@@ -293,6 +293,10 @@ h3 {
 
 .dragable-zone {
   height: 100%;
+}
+
+.score{
+  color: #ffffff;
 }
 
 @media screen and (max-width: 600px) {
