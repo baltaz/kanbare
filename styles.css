@@ -312,3 +312,9 @@ h3 {
 .score {
   color: #ffffff;
 }
+.score::after{
+  font-size: 28px;
+  font-weight: 400;
+  color: #63d2b4;
+  content: " complete";
+}
