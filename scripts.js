@@ -7,9 +7,9 @@ const saveButton = document.querySelector(".save-button");
 const score = document.querySelector(".score");
 const done = document.querySelector("#done").querySelector(".dragable-zone")
 
+let editingCard = null;
 let holdTimer = null;
-let i = 0;
-
+let i=localStorage.getItem("id")?localStorage.getItem("id"):demoCards.length-1;
 let savedCards = localStorage.getItem("cards");
 let cardsList = savedCards?JSON.parse(savedCards):demoCards;
 
@@ -25,11 +25,11 @@ const sortableConfig = {
     renderScore();
   },
   store:{
-    set: function (sortable) {
+    set: sortable => {
       const order = sortable.toArray();
       localStorage.setItem(sortable.el.parentElement.id, order.join('|'));
     },
-    get: function (sortable){
+    get: sortable =>{
       const order = localStorage.getItem(sortable.el.parentElement.id)
       return order ? order.split('|'): [];
     }
@@ -63,7 +63,11 @@ const release = releasedCard => {
 const showModal = () => (modal.style.display = "block");
 const hideModal = () => (modal.style.display = "none");
 
-addButton.addEventListener("click", showModal);
+addButton.addEventListener("click", () =>{
+  titleField.value = "";
+  descriptionField.value = "";
+  showModal()
+});
 modal.addEventListener("click", e => { if (e.target == modal) hideModal();});
 
 //NEW CARD
@@ -76,24 +80,44 @@ const titleField = document.querySelector(".title-field");
 const descriptionField = document.querySelector(".description-field");
 
 const saveCard = () => {
-  const newCard = {
-    id : i++,
-    title : titleField.value,
-    description : descriptionField.value,
-    status: "todo"
+  if(editingCard){
+    cardsList.forEach(aCard =>{
+      if(aCard.id == editingCard.id){
+          aCard.title = titleField.value;
+          aCard.description = descriptionField.value;
+      }
+      editingCard.querySelector(".title").firstChild.innerText= titleField.value;
+      editingCard.querySelector(".description").firstChild.innerText= descriptionField.value;
+    })
+    editingCard=null;
+  }else{
+    const newCard = {
+      id : ++i,
+      title : titleField.value,
+      description : descriptionField.value,
+      status: "todo"
+    }
+    renderCard(newCard);
+    cardsList.push(newCard);
+    localStorage.setItem("id",newCard.id);
+    renderScore();
   }
-  renderCard(newCard);
-  cardsList.push(newCard);
-  localStorage.setItem("id",newCard.id);
   localStorage.setItem("cards", JSON.stringify(cardsList));
-  
-  renderScore();
   hideModal();
   titleField.value = "";
   descriptionField.value = "";
 };
 
+
 saveButton.addEventListener("click", saveCard);
+
+const editCard = e =>{
+  editingCard=e.currentTarget;
+  titleField.value= editingCard.querySelector(".title").innerText;
+  descriptionField.value= editingCard.querySelector(".description").innerText;
+  showModal();
+}
+
 
 const renderCard = cardData =>{
   const column = document.querySelector(`#${cardData.status}`).querySelector(".dragable-zone");
@@ -118,12 +142,13 @@ const renderCard = cardData =>{
 
   card.appendChild(titleContent);
   card.appendChild(descriptionContent);
-  card.addEventListener("mousedown", (e)=>{holding(e)});
-  card.addEventListener("touchstart", (e)=>{holding(e)});
-  card.addEventListener("mouseup",    (e)=>{release(e)});
-  card.addEventListener("mouseleave", (e)=>{release(e)});
-  card.addEventListener("touchend",   (e)=>{release(e)});
-  card.addEventListener("touchcancel",(e)=>{release(e)});
+  card.addEventListener("click",      e=>editCard(e));
+  card.addEventListener("mousedown",  e=>holding(e));
+  card.addEventListener("touchstart", e=>holding(e));
+  card.addEventListener("mouseup",    e=>release(e));
+  card.addEventListener("mouseleave", e=>release(e));
+  card.addEventListener("touchend",   e=>release(e));
+  card.addEventListener("touchcancel",e=>release(e));
 
   column.appendChild(card);
 }
@@ -135,5 +160,4 @@ const renderCard = cardData =>{
     Sortable.create(e, sortableConfig);
   });
 
-//save order
 //access to edit
