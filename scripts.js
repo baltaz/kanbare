@@ -17,17 +17,24 @@ const sortableConfig = {
   group: "board",
   sort: true,
   animation: 200,
+  dataIdAttr: "id",
   onEnd: e =>{
     const position = cardsList.findIndex(item => item.id==e.item.id);
     cardsList[position].status=e.to.parentElement.id;
     localStorage.setItem("cards", JSON.stringify(cardsList));
     renderScore();
+  },
+  store:{
+    set: function (sortable) {
+      const order = sortable.toArray();
+      localStorage.setItem(sortable.el.parentElement.id, order.join('|'));
+    },
+    get: function (sortable){
+      const order = localStorage.getItem(sortable.el.parentElement.id)
+      return order ? order.split('|'): [];
+    }
   }
 };
-
-columns.forEach(e => {
-  Sortable.create(e, sortableConfig);
-});
 
 const holding = clickedCard => {
   const card = clickedCard.currentTarget;
@@ -123,6 +130,10 @@ const renderCard = cardData =>{
 
   cardsList.forEach(aCard=>{renderCard(aCard)});
   renderScore();
-  
+
+  columns.forEach(e => {
+    Sortable.create(e, sortableConfig);
+  });
+
 //save order
 //access to edit
