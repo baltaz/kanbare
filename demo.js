@@ -6,13 +6,13 @@ export const demoCards = [
     status: "todo"
   },{
     id:1,
-    title:"Understand that strange name",
+    title:"Understand that name",
     description:"It comes from the union of the words Gambare, a Japanese expresion used to encourage people to try hard, and Kanban, the name of the boards used to manage work) ",
     status: "todo"
   },{
     id:2,
     title:"Learn to use it",
-    description:" to create a card click on the + button(at top right), to edit click on it and to delete click and hold on it for few seconds, to change the status just drag and drop the cards to the corresponding column. That's it, now KANBARE!",
+    description:" To create a card click on the + button(at top right), to edit click on it and to delete click and hold on it for few seconds, to change the status just drag and drop the cards to the corresponding column. That's it, now KANBARE!",
     status: "todo"
   },
 
