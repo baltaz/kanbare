@@ -1,26 +1,15 @@
-'use strict';
-
 import {demoCards} from './demo.js';
 
 const columns = document.querySelectorAll(".dragable-zone");
-const modal = document.querySelector(".overlay");
 const addButton = document.querySelector(".add-button");
+const modal = document.querySelector(".overlay");
 const saveButton = document.querySelector(".save-button");
-const score = document.querySelector(".score");
-const done = document.querySelector("#done").querySelector(".dragable-zone")
-
+const titleField = document.querySelector(".title-field");
+const descriptionField = document.querySelector(".description-field");
 let editingCard = null;
 let holdTimer = null;
 let currentId = localStorage.getItem("id") || demoCards.length-1;
 let cardsList = JSON.parse(localStorage.getItem("cards")) || demoCards
-
-const name = document.querySelector(".name");
-const description = document.querySelector(".description");
-const column = document.querySelector("#todo").querySelector(".dragable-zone");
-
-const titleField = document.querySelector(".title-field");
-const descriptionField = document.querySelector(".description-field");
-
 
 const sortableConfig = {
   group: "board",
@@ -59,17 +48,20 @@ const holding = clickedCard => {
   }, 1900);
 };
 
-const renderScore = () =>
+const renderScore = () =>{
+  const done = document.querySelector("#done").querySelector(".dragable-zone")
+  const score = document.querySelector(".score");
   score.innerText = `${cardsList.length? Math.round(done.children.length/cardsList.length*100):0}%`;
+}
 
 const release = releasedCard => {
   clearTimeout(holdTimer);
   const card = releasedCard.currentTarget;
   card.classList.remove("holding");
 };
-////////////////MODAL//////////////////////
-const showModal = () => (modal.style.display = "block");
-const hideModal = () => (modal.style.display = "none");
+
+const showModal = () => modal.style.display = "block";
+const hideModal = () => modal.style.display = "none";
 
 const saveCard = () => {
   if(editingCard){
@@ -123,8 +115,8 @@ const renderCard = cardData =>{
   card.appendChild(titleContent);
   card.appendChild(descriptionContent);
   card.addEventListener("click", e=>editCard(e));
-  ['mousedown','touchstart'].forEach( evt => card.addEventListener(evt, e=>holding(e)));
-  ['mouseup','mouseleave','touchend','touchcancel'].forEach( evt => card.addEventListener(evt, e=>release(e)));
+  ['mousedown','touchstart'].forEach( evt => card.addEventListener( evt, e => holding(e)));
+  ['mouseup','mouseleave','touchend','touchcancel'].forEach( evt => card.addEventListener(evt, e => release(e)));
   column.appendChild(card);
 }
 
@@ -136,6 +128,6 @@ addButton.addEventListener("click", () =>{
   showModal()
 });
 
-cardsList.forEach(aCard=>{renderCard(aCard)});
-columns.forEach(e => {Sortable.create(e, sortableConfig)});
+cardsList.forEach( aCard => renderCard(aCard));
+columns.forEach( e => Sortable.create(e, sortableConfig));
 renderScore();
